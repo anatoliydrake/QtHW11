@@ -15,7 +15,8 @@ class BaseReader1 : public QWidget
     Q_OBJECT
 
 public:
-    explicit BaseReader1(QWidget *parent = nullptr);
+//    explicit BaseReader1(QWidget *parent = nullptr);
+    BaseReader1(QSqlTableModel* mdl = nullptr);
     ~BaseReader1();
 
 private:
@@ -25,7 +26,7 @@ private:
     QTableView* view;
 
 private:
-    bool createConnection();
+
 };
 
 #endif // BASEREADER1_H

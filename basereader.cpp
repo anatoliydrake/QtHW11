@@ -8,7 +8,7 @@ BaseReader::BaseReader() // : file(nullptr)
 }
 BaseReader::~BaseReader()
 {
-
+    db.close();
 }
 
 bool BaseReader::createConnection()
@@ -43,5 +43,10 @@ bool BaseReader::insertRecord(QString taskname, QString deadline, QString progre
 
 void BaseReader::runTable()
 {
-    base.show();
+    model = new QSqlTableModel(this);
+    model->setTable("tasks");
+    model->select();
+    model->setEditStrategy(QSqlTableModel::EditStrategy::OnFieldChange);
+    base = new BaseReader1(model);
+    base->show();
 }

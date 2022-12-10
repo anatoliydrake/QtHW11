@@ -8,6 +8,7 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QSqlDatabase>
+#include <QSqlTableModel>
 
 class BaseReader : public QObject
 {
@@ -22,8 +23,10 @@ public:
     Q_INVOKABLE
     bool createConnection();
 private:
-    BaseReader1 base;
+    BaseReader1* base;
     QSqlDatabase db;
+    QSqlTableModel* model;
+
 signals:
     void initEnd(bool succed);
     void loadTask(QString task, QString deadline, QString progress);
@@ -31,7 +34,6 @@ signals:
 private slots:
 
 private:
-
     void createTable();
 };
 

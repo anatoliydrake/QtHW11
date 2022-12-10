@@ -10,7 +10,6 @@ Window {
     height: 480
     visible: true
     title: qsTr("Органайзер")
-    property int num: 0
     function addThisDate(task, deadline, progress)
     {
         loader.insertRecord(task, deadline, progress)
@@ -142,16 +141,16 @@ Window {
            }
        }
 
-       Label {
-           y: 55
-           x: 280
-           text: qsTr("Tasks in list: " + root.num)
-       }
+//       Label {
+//           y: 55
+//           x: 280
+//           text: qsTr("Tasks in list: " + root.num)
+//       }
 
        Label {
            id: lbl
            y: 80
-           x: 280
+           x: 10
        }
     }
 
